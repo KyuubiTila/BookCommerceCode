@@ -1,15 +1,7 @@
 import Logo from '../../assets/logo.png';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
-  const activeClass =
-    'text-base block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white';
-  const inactiveClass =
-    'text-base block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700';
-
-  // setting a dynamic value for the isActive function
-  const isNavlinkActive = ({ isActive }) =>
-    isActive ? activeClass : inactiveClass;
   return (
     <header>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
