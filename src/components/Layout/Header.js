@@ -15,7 +15,7 @@ export const Header = () => {
           <div className="flex item-center">
             <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-gear-wide"></span>
             <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-search"></span>
-            <Link to="/cart" className="text-gray-700 dark:text-white mr-5">
+            <Link to="/products" className="text-gray-700 dark:text-white mr-5">
               <span className="relative cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-cart">
                 <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">
                   0
