@@ -6,6 +6,12 @@ export const Header = () => {
   const [light, setLight] = useState(true);
 
   const toggle = () => {
+    if (light) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     setLight(!light);
   };
 
