@@ -1,19 +1,18 @@
 import Logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Header = () => {
-  const [light, setLight] = useState(true);
+  const [light, setLight] = useState(
+    JSON.parse(localStorage.getItem('light')) || false
+  );
 
-  const toggle = () => {
-    if (light) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    setLight(!light);
-  };
+  useEffect(() => {
+    localStorage.setItem('light', JSON.stringify(light));
+    light
+      ? document.documentElement.classList.remove('dark')
+      : document.documentElement.classList.add('dark');
+  }, [light]);
 
   return (
     <header>
@@ -26,7 +25,7 @@ export const Header = () => {
             </span>
           </Link>
           <div className="flex item-center">
-            <span onClick={toggle}>
+            <span onClick={() => setLight(!light)}>
               {light ? (
                 <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi bi-moon"></span>
               ) : (
