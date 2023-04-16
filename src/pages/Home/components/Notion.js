@@ -17,7 +17,7 @@ export const Notion = ({ faq }) => {
           <span className="text-xl text-slate-900 dark:text-white">
             {question}
           </span>
-          {!active && (
+          {!active ? (
             <svg
               data-accordion-icon
               className="w-6 h-6 shrink-0"
@@ -31,8 +31,7 @@ export const Notion = ({ faq }) => {
                 clipRule="evenodd"
               ></path>
             </svg>
-          )}
-          {active && (
+          ) : (
             <svg
               data-accordion-icon
               className="rotate-180 w-6 h-6 shrink-0"

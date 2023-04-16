@@ -1,7 +1,14 @@
 import Logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const Header = () => {
+  const [light, setLight] = useState(true);
+
+  const toggle = () => {
+    setLight(!light);
+  };
+
   return (
     <header>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -13,7 +20,13 @@ export const Header = () => {
             </span>
           </Link>
           <div className="flex item-center">
-            <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-gear-wide"></span>
+            <span onClick={toggle}>
+              {light ? (
+                <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi bi-moon"></span>
+              ) : (
+                <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi bi-moon-fill"></span>
+              )}
+            </span>
             <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-search"></span>
             <Link to="/products" className="text-gray-700 dark:text-white mr-5">
               <span className="relative cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-cart">
@@ -26,34 +39,6 @@ export const Header = () => {
           </div>
         </div>
       </nav>
-      {/* <nav className="bg-gray-50 dark:bg-gray-700">
-        <div className="max-w-screen-xl px-4 py-3 mx-auto">
-          <div className="flex items-center">
-            <ul className="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
-              <li>
-                <NavLink to="/" className={isNavlinkActive} end>
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/products" className={isNavlinkActive}>
-                  Company
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="#" className={isNavlinkActive}>
-                  Team
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="#" className={isNavlinkActive}>
-                  Features
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */}
     </header>
   );
 };
