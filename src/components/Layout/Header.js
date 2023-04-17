@@ -1,11 +1,13 @@
 import Logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Search } from '../Sections/Search';
 
 export const Header = () => {
   const [light, setLight] = useState(
     JSON.parse(localStorage.getItem('light')) || false
   );
+  const [search, setSearch] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('light', JSON.stringify(light));
@@ -32,7 +34,10 @@ export const Header = () => {
                 <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi bi-moon-fill"></span>
               )}
             </span>
-            <span className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-search"></span>
+            <span
+              onClick={() => setSearch(!search)}
+              className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-search"
+            ></span>
             <Link to="/products" className="text-gray-700 dark:text-white mr-5">
               <span className="relative cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-cart">
                 <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">
@@ -44,6 +49,7 @@ export const Header = () => {
           </div>
         </div>
       </nav>
+      {search && <Search setSearch={setSearch} search={search} />}
     </header>
   );
 };
