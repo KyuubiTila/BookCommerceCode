@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ProductCard } from '../../components';
 import { FilterBar } from './components/FilterBar';
+import { useTitle } from '../../hooks/useTitle';
 
 export const ProductList = () => {
+  useTitle('Explore E Book Collection');
+
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState([]);
   const search = useLocation().search;
@@ -27,7 +30,7 @@ export const ProductList = () => {
 
       throw err;
     }
-  }, []);
+  }, [searchTerm]);
 
   return (
     <main>
