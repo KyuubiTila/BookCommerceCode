@@ -6,7 +6,6 @@ import { useTitle } from '../hooks/useTitle';
 export const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
-  console.log(product.name);
   useTitle(product.name);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ export const ProductDetail = () => {
       fetchProducts();
     } catch (err) {
       console.error(`${err} 💥`);
-
       throw err;
     }
   }, [id]);

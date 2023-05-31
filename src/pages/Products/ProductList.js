@@ -3,14 +3,16 @@ import { useLocation } from 'react-router-dom';
 import { ProductCard } from '../../components';
 import { FilterBar } from './components/FilterBar';
 import { useTitle } from '../../hooks/useTitle';
+import { useFilter } from '../../context';
 
 export const ProductList = () => {
-  useTitle('Explore E Book Collection');
-
+  const { products, initialProductList } = useFilter();
   const [show, setShow] = useState(false);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const search = useLocation().search;
   const searchTerm = new URLSearchParams(search).get('p');
+  useTitle('Explore E Book Collection');
+  // console.log(ProductList);
 
   useEffect(() => {
     try {
@@ -22,7 +24,8 @@ export const ProductList = () => {
         );
         if (!response.ok) throw new Error('Problem fetching local data');
         const data = await response.json();
-        setProducts(data);
+        // setProducts(data);
+        initialProductList(data);
       };
       fetchProducts();
     } catch (err) {
