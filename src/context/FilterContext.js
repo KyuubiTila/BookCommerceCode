@@ -64,6 +64,7 @@ export const FilterProvider = ({ children }) => {
     return products;
   }
 
+  // applying all conditions at once
   const filteredProductList = rating(
     sort(inStock(bestSeller(state.productList)))
   );
@@ -71,6 +72,7 @@ export const FilterProvider = ({ children }) => {
   const value = {
     state,
     dispatch,
+    // so instead of passing all functions individually they are all called repeatedly by filteredProductList
     products: filteredProductList,
     initialProductList,
   };
