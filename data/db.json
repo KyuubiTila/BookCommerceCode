@@ -238,5 +238,18 @@
     }
   ],
   "orders": [],
-  "users": []
+  "users": [
+    {
+      "email": "ddd@tila.com",
+      "password": "$2a$10$R6hDjG5j9/k/o4ubwsTbf.urXxDORZ2advh7IJt0GgVDpl/0jIDzy",
+      "name": "dddd",
+      "id": 1
+    },
+    {
+      "email": "ddd@fila.com",
+      "password": "$2a$10$v6LsBf1LikZQyVRWAmx/veN.FVWO/NC31bTrmd5G.dVypw2IrqNNG",
+      "name": "ee",
+      "id": 2
+    }
+  ]
 }
