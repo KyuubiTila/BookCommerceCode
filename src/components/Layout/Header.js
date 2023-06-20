@@ -54,7 +54,12 @@ export const Header = () => {
               className="bi bi-person-circle cursor-pointer text-2xl text-gray-700 dark:text-white"
             ></span>
             {/* drop down available and a token is set, condition in between to chose whater loggedin or loggedout */}
-            {dropdown && (token ? <DropdownLoggedIn /> : <DropdownLoggedOut />)}
+            {dropdown &&
+              (token ? (
+                <DropdownLoggedIn setDropdown={setDropdown} />
+              ) : (
+                <DropdownLoggedOut setDropdown={setDropdown} />
+              ))}
           </div>
         </div>
       </nav>
