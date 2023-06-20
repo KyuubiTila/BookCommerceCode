@@ -250,6 +250,12 @@
       "password": "$2a$10$v6LsBf1LikZQyVRWAmx/veN.FVWO/NC31bTrmd5G.dVypw2IrqNNG",
       "name": "ee",
       "id": 2
+    },
+    {
+      "email": "joha@joha.com",
+      "password": "$2a$10$E9OwdWJP0WWqcUiCj1EAcudMYxMXLzFuiz0WqY4bkVmgmVBXO8GnG",
+      "name": "joha",
+      "id": 3
     }
   ]
 }

@@ -10,6 +10,8 @@ export const Header = () => {
   );
   const [searchSection, setSearchSection] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  //getting session storage token as set in loggedin and register
+  const token = JSON.parse(sessionStorage.getItem('token'));
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
@@ -51,7 +53,8 @@ export const Header = () => {
               onClick={() => setDropdown(!dropdown)}
               className="bi bi-person-circle cursor-pointer text-2xl text-gray-700 dark:text-white"
             ></span>
-            {dropdown && <DropdownLoggedOut />}
+            {/* drop down available and a token is set, condition in between to chose whater loggedin or loggedout */}
+            {dropdown && (token ? <DropdownLoggedIn /> : <DropdownLoggedOut />)}
           </div>
         </div>
       </nav>
